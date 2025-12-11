@@ -56,3 +56,29 @@ pdf-qa-ollama/
 ├── app_ollama_pdf_qa.py    # Older simple in-memory version (optional)
 ├── requirements.txt
 └── README.md               # (this file)
+
+
+## Commands 
+
+# 1. Clone
+git clone <your-github-repo-url>
+cd pdf-qa-ollama   # or whatever name
+
+# 2. Create venv
+python3 -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+
+# 3. Install deps
+pip install -r requirements.txt
+
+# 4. Create .env from template
+cp .env.example .env
+# (edit .env if they want a different model)
+
+# 5. Install & start Ollama + model (once)
+# https://ollama.com
+ollama pull mistral:latest
+ollama serve    # in a separate terminal
+
+# 6. Run the app
+streamlit run app.py
